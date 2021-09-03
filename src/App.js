@@ -24,7 +24,7 @@ function App() {
     if (searchName !== "") {
       const item = products.filter((item) => item.name === searchName);
       if (item.length !== 0) {
-        setFilteredProducts([...filteredProducts, item[0]]);
+        setFilteredProducts([item[0]]);
         setIsSearching(true);
       }
     } else {
@@ -33,11 +33,14 @@ function App() {
   };
 
   const handleClick = (productId) => {
-    const item = products.filter((item) => item.id === productId);
-    //gambiarra, o setCurrentSale nao estava funcionando como eu esperava
-    let gambiarra = [...currentSale, item[0]];
-    setCurrentSale(gambiarra);
-    setTotalPrice(gambiarra.reduce((acc, item) => acc + item.price, 0));
+    const product = products.find((item) => item.id === productId);
+    const includeThis = currentSale.includes(product);
+    if (!includeThis) {
+      //gambiarra, o setCurrentSale nao estava funcionando como eu esperava
+      let gambiarra = [...currentSale, product];
+      setCurrentSale(gambiarra);
+      setTotalPrice(gambiarra.reduce((acc, item) => acc + item.price, 0));
+    }
   };
 
   return (
