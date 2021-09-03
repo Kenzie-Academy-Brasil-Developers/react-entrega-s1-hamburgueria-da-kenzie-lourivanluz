@@ -1,71 +1,70 @@
-# 📋 Sobre a entrega
+# Getting Started with Create React App
 
-O principal objetivo dessa aplicação, é simular um carrinho de compras. Você vai usar os diferentes conceitos abordados sobre React para isso. Porém, o maior foco dessa atividade é a manipulação do `state`.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# ℹ️ Informações úteis
+## Available Scripts
 
-## Resultado
+In the project directory, you can run:
 
-![https://media0.giphy.com/media/KTqw0TQ5pqCWJMcBuv/giphy.gif](https://media0.giphy.com/media/KTqw0TQ5pqCWJMcBuv/giphy.gif)
+### `yarn start`
 
-# 🖖🏻 Mão na massa!
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Instruções
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-Exemplo de `state`:
+### `yarn test`
 
-    const [products, setProducts] = useState([
-        { id: 1, name: 'Hamburguer', category: 'Sanduíches', price: 7.99 },
-        { id: 2, name: 'X-Burguer', category: 'Sanduíches', price: 8.99 },
-        { id: 3, name: 'X-Salada', category: 'Sanduíches', price: 10.99 },
-        { id: 4, name: 'Big Kenzie', category: 'Sanduíches', price: 16.99 },
-        { id: 5, name: 'Guaraná', category: 'Bebidas', price: 4.99 },
-        { id: 6, name: 'Coca', category: 'Bebidas', price: 4.99 },
-        { id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
-      ]); 
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [currentSale, setCurrentSale] = useState([])const [cartTotal, setCartTotal] = useState(0)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Componentes para esta aplicação:
+### `yarn build`
 
-`App` - Responsável por centralizar os componentes e administrar o compartilhamento de informações por props;
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-`MenuContainer` - Responsável por renderizar a lista de produtos;
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-`Product` - Responsável por apresentar <span style="font-family: sans-serif; font-size: 1rem;">as informações do produto:</span> **nome, categoria** <span style="font-family: sans-serif; font-size: 1rem;">e</span> **preço**<span style="font-family: sans-serif; font-size: 1rem;">, além de um</span> `button` <span style="font-family: sans-serif; font-size: 1rem;">para adicionar ao carrinho.</span>
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Funções para esta aplicação:
+### `yarn eject`
 
-`showProducts` - R<span style="font-family: sans-serif; font-size: 1rem;">esponsável por filtrar (use o método</span> `filter`<span style="font-family: sans-serif; font-size: 1rem;">) e mostrar apenas os produtos</span> **com o mesmo** <span style="font-family: sans-serif; font-size: 1rem;">texto escrito no</span> `input;`
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-`handleClick` - Esta função deve receber por parâmetro o id e usar o método find para encontrar o item no array com o mesmo id do produto e será responsável por adicionar o produto selecionado no `state` `currentSale`; 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<span style="font-family: sans-serif; font-size: 1rem;"> </span>
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-1.  No componente `App`
-    1.  Crie o `state` <span style="font-family: sans-serif; font-size: 1rem;">do exemplo;</span>
-    2.  Importe o componente `<MenuContainer/>` e passe para ele o state por `props;`
-    3.  Crie a função `showProducts;`
-    4.  Crie a função `handleClick(productId)`.
-    5.  Crie um elemento JSX e use o método reduce para mostra o total da venda.
-2.  No componente `<MenuContainer />` 
-    1.  Importe o componente `<Product />;`
-    2.  Faça um map na lista de produtos que recebeu por props e retorne o product  
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-    3.  Passe cada elemento recebido como `props` para um componente `<Product />.`  
+## Learn More
 
-3.  No componente `<Product />`
-    1.  Aqui você vai precisar da função handleClick (criada no componente App) e passe por parâmetro o id do produto atual que vai ser usado para adicionar ao carrinho.
-    2.  Renderize a **categoria**, o **nome** e o **preço**, além de um `button` para adicionar ao carrinho;
-4.  Faça deploy na vercel e envie o link :)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Aplique os conhecimentos de CSS para criar interfaces atrativas e dar destaque aos seus projetos. Perceba que sempre pode pensar na experiência do usuário e entregar mais que o solicitado, por exemplo, ajustar a pesquisa para o cliente usar letra minuscula ou maiúscula valoriza sua aplicação.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-# 💡Conhecimentos aplicados:
+### Code Splitting
 
-*   Fundamentos do React
-*   Deploy no Vercel
-*   Componentização
-*   Props
-*   Import e export
-*   Estilização
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

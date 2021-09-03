@@ -1,0 +1,9 @@
+ul {
+  list-style: none;
+  display: flex;
+  font-size: 27px;
+}
+ul li {
+  padding: 15px;
+  min-width: 200px;
+}
