@@ -2,8 +2,25 @@ ul {
   list-style: none;
   display: flex;
   font-size: 27px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 ul li {
   padding: 15px;
-  min-width: 200px;
+  min-width: 225px;
+  background-color: white;
+  font-size: 28px;
+  color: rgb(33, 33, 33);
+  border: 1px solid rgb(36, 36, 36);
+}
+
+ul li button {
+  background-color: red;
+  width: 40px;
+  height: 40px;
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
 }

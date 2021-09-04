@@ -15,16 +15,18 @@ function App() {
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
   const [searchInput, setSearchInput] = useState("");
 
   const [isSearching, setIsSearching] = useState(false);
 
   const showProducts = (searchName) => {
     if (searchName !== "") {
-      const item = products.filter((item) => item.name === searchName);
+      const item = products.filter((item) =>
+        item.name.toLowerCase().includes(searchName)
+      );
+      setSearchInput("");
       if (item.length !== 0) {
-        setFilteredProducts([item[0]]);
+        setFilteredProducts([...item]);
         setIsSearching(true);
       }
     } else {
@@ -36,32 +38,53 @@ function App() {
     const product = products.find((item) => item.id === productId);
     const includeThis = currentSale.includes(product);
     if (!includeThis) {
-      //gambiarra, o setCurrentSale nao estava funcionando como eu esperava
-      let gambiarra = [...currentSale, product];
-      setCurrentSale(gambiarra);
-      setTotalPrice(gambiarra.reduce((acc, item) => acc + item.price, 0));
+      setCurrentSale([...currentSale, product]);
+    } else {
+      alert("ja existe");
     }
   };
 
+  const deleteItem = (productId) => {
+    setCurrentSale(currentSale.filter((item) => item.id !== productId));
+  };
+
+  const teste = currentSale.reduce((acc, item) => acc + item.price, 0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <input
-          type="text"
-          value={searchInput}
-          onChange={(event) => setSearchInput(event.target.value)}
-        />
-        <button onClick={() => showProducts(searchInput)}>Buscar</button>
+      <div className="App-header">
+        <div className="countainer-search">
+          <input
+            placeholder="Buscar produto"
+            type="text"
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+          />
+          <button onClick={() => showProducts(searchInput)}>
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
 
-        <ListItens
-          products={isSearching ? filteredProducts : products}
-          handleClick={handleClick}
-          typeList={"menu"}
-        />
-
-        <p>Preço total: {totalPrice.toFixed(2)}</p>
-        <ListItens products={currentSale} typeList={"cart"} />
-      </header>
+      <div className="listItens">
+        <div>
+          <h2 onClick={() => setIsSearching(false)}>Menu</h2>
+          <ListItens
+            products={isSearching ? filteredProducts : products}
+            handleClick={handleClick}
+            typeList={"menu"}
+          />
+        </div>
+        <div>
+          <h2 onClick={() => setCurrentSale([])}>Carrinho</h2>
+          <ListItens
+            products={currentSale}
+            typeList={"cart"}
+            deleteItem={deleteItem}
+          />
+        </div>
+      </div>
+      <h2 className="preco">Preço total: {teste.toFixed(2)}</h2>
     </div>
   );
 }
