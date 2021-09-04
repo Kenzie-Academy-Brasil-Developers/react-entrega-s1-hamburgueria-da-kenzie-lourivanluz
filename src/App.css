@@ -23,6 +23,7 @@ ol {
 .listItens h2 {
   color: rgb(218, 216, 216);
   margin: 15px 15px;
+  display: inline-block;
   cursor: pointer;
 }
 .listItens h2:hover {
